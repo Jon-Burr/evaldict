@@ -1,4 +1,9 @@
-from collections import MutableMapping
+import six
+
+if six.PY3:
+  from collections.abc import MutableMapping
+else:
+  from collections import MutableMapping
 from memoclass.memoclass import MemoClass, mutates
 from memoclass.memoize import memomethod
 import string
@@ -127,4 +132,4 @@ if __name__ == "__main__":
     d["pad"] = "20"
     d["message"] = "Hello World!"
     d["val"] = "{message:{fill}{align}{pad}}"
-    print d["val"]
+    print(d["val"])
